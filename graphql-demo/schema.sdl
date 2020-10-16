@@ -7,3 +7,4 @@ type President {
   name: String!
   surname: String!
 }
+

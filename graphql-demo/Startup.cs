@@ -4,6 +4,7 @@ using graphql_demo.Services;
 using graphql_demo.Types;
 using HotChocolate;
 using HotChocolate.AspNetCore;
+using HotChocolate.AspNetCore.Subscriptions;
 using HotChocolate.Stitching;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,25 +29,36 @@ namespace graphql_demo
         {
             services.AddControllers();
             services.AddSingleton<IPresidentService, PresidentService>();
-            services.AddGraphQL(s => SchemaBuilder.New()
-                .AddServices(s)
+            services.AddDataLoaderRegistry();
+
+            var schema1 = SchemaBuilder.New()
                 .AddDocumentFromFile("schema.sdl")
-                .BindComplexType<Query>(c=> c.To("Query"))
-                .BindResolver<QueryResolver>( c=> c
-                    .To("Query")
-                    .Resolve("president")
-                    .With(t=> t.President(default)))
-                .BindResolver<PresidentResolver>(c=> c
+                .BindComplexType<Query>(c => c.To("Query"))
+                .BindResolver<QueryResolver>(c => c
+                   .To("Query")
+                   .Resolve("president")
+                   .With(t => t.President(default)))
+                .BindResolver<PresidentResolver>(c => c
                     .To("President"))
-                .Create());
+                .Create();
 
-            //services.AddHttpClient("conspiracies", (sp, client) =>
-            //{
-            //    client.BaseAddress = new Uri("http://127.0.0.1:44323");
-            //});
+            //services.AddGraphQL(schema1);
 
-            //services.AddStitchedSchema(builder =>
-            //    builder.AddSchemaFromHttp("conspiracies"));
+            services.AddGraphQLSubscriptions();
+
+            services.AddHttpClient("conspiracies", (sp, client) =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44323/");
+            });
+
+            services.AddStitchedSchema(builder =>
+                builder
+                .AddSchemaFromHttp("conspiracies")
+                .AddSchema("schema1", schema1)
+                .AddSchemaConfiguration(c =>
+                {
+                    c.RegisterExtendedScalarTypes();
+                }));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
