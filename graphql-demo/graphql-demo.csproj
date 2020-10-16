@@ -8,8 +8,16 @@
   <ItemGroup>
     <PackageReference Include="HotChocolate.AspNetCore" Version="10.5.3" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.5.3" />
+    <PackageReference Include="HotChocolate.Stitching" Version="10.5.3" />
     <PackageReference Include="HotChocolate.Types" Version="10.5.3" />
     <PackageReference Include="HotChocolate.Types.Filters" Version="10.5.3" />
+    <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="schema.sdl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 

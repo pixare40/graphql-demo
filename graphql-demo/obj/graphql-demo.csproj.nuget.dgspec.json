@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kabaj\\Documents\\graphql-demo\\graphql-demo.csproj": {}
+    "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo\\graphql-demo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kabaj\\Documents\\graphql-demo\\graphql-demo.csproj": {
+    "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo\\graphql-demo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kabaj\\Documents\\graphql-demo\\graphql-demo.csproj",
+        "projectUniqueName": "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo\\graphql-demo.csproj",
         "projectName": "graphql-demo",
-        "projectPath": "C:\\Users\\kabaj\\Documents\\graphql-demo\\graphql-demo.csproj",
+        "projectPath": "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo\\graphql-demo.csproj",
         "packagesPath": "C:\\Users\\kabaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kabaj\\Documents\\graphql-demo\\obj\\",
+        "outputPath": "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -51,6 +51,10 @@
               "target": "Package",
               "version": "[10.5.3, )"
             },
+            "HotChocolate.Stitching": {
+              "target": "Package",
+              "version": "[10.5.3, )"
+            },
             "HotChocolate.Types": {
               "target": "Package",
               "version": "[10.5.3, )"
@@ -58,6 +62,10 @@
             "HotChocolate.Types.Filters": {
               "target": "Package",
               "version": "[10.5.3, )"
+            },
+            "System.Linq.Queryable": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

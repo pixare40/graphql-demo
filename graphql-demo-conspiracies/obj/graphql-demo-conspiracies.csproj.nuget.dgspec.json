@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kabaj\\Documents\\graphql-demo-conspiracies\\graphql-demo-conspiracies.csproj": {}
+    "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo-conspiracies\\graphql-demo-conspiracies.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kabaj\\Documents\\graphql-demo-conspiracies\\graphql-demo-conspiracies.csproj": {
+    "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo-conspiracies\\graphql-demo-conspiracies.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kabaj\\Documents\\graphql-demo-conspiracies\\graphql-demo-conspiracies.csproj",
+        "projectUniqueName": "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo-conspiracies\\graphql-demo-conspiracies.csproj",
         "projectName": "graphql-demo-conspiracies",
-        "projectPath": "C:\\Users\\kabaj\\Documents\\graphql-demo-conspiracies\\graphql-demo-conspiracies.csproj",
+        "projectPath": "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo-conspiracies\\graphql-demo-conspiracies.csproj",
         "packagesPath": "C:\\Users\\kabaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kabaj\\Documents\\graphql-demo-conspiracies\\obj\\",
+        "outputPath": "C:\\Users\\kabaj\\Documents\\demo\\graphql-demo-conspiracies\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -48,6 +48,10 @@
               "version": "[10.5.3, )"
             },
             "HotChocolate.AspNetCore": {
+              "target": "Package",
+              "version": "[10.5.3, )"
+            },
+            "HotChocolate.AspNetCore.Playground": {
               "target": "Package",
               "version": "[10.5.3, )"
             },
