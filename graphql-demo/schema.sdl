@@ -1,8 +1,8 @@
 ﻿type Query { 
-	author: Author! 
+	president: [President!]
 }
 
-type Author {
+type President {
   id: ID!
   name: String!
   surname: String!

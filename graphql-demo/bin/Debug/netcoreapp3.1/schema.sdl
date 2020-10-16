@@ -1,9 +1,0 @@
-﻿type Query { 
-	author: Author! 
-}
-
-type Author {
-  id: ID!
-  name: String!
-  surname: String!
-}

@@ -1,4 +1,5 @@
 using graphql_demo.Interface;
+using graphql_demo.Resolvers;
 using graphql_demo.Services;
 using graphql_demo.Types;
 using HotChocolate;
@@ -29,19 +30,25 @@ namespace graphql_demo
             services.AddSingleton<IPresidentService, PresidentService>();
             services.AddGraphQL(s => SchemaBuilder.New()
                 .AddServices(s)
-                .AddQueryType<QueryType>()
+                .AddDocumentFromFile("schema.sdl")
+                .BindComplexType<Query>(c=> c.To("Query"))
+                .BindResolver<QueryResolver>( c=> c
+                    .To("Query")
+                    .Resolve("president")
+                    .With(t=> t.President(default)))
+                .BindResolver<PresidentResolver>(c=> c
+                    .To("President"))
                 .Create());
 
-            services.AddHttpClient("conspiracies", (sp, client) =>
-            {
-                client.BaseAddress = new Uri("http://127.0.0.1:44323");
-            });
+            //services.AddHttpClient("conspiracies", (sp, client) =>
+            //{
+            //    client.BaseAddress = new Uri("http://127.0.0.1:44323");
+            //});
 
-            services.AddStitchedSchema(builder =>
-                builder.AddSchemaFromHttp("conspiracies"));
+            //services.AddStitchedSchema(builder =>
+            //    builder.AddSchemaFromHttp("conspiracies"));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
